@@ -73,7 +73,7 @@ class ShareActivity : FileActivity(), ShareFragmentListener {
      * @return A [PublicShareDialogFragment] instance, or null
      */
     private val publicShareFragment: PublicShareDialogFragment?
-        get() = supportFragmentManager.findFragmentByTag(TAG_PUBLIC_SHARE_DIALOG_FRAGMENT) as PublicShareDialogFragment
+        get() = supportFragmentManager.findFragmentByTag(TAG_PUBLIC_SHARE_DIALOG_FRAGMENT) as PublicShareDialogFragment?
 
     /**
      * Shortcut to get access to the [EditShareFragment] instance, if any
@@ -249,6 +249,10 @@ class ShareActivity : FileActivity(), ShareFragmentListener {
         newFragment.show(ft, TAG_PUBLIC_SHARE_DIALOG_FRAGMENT)
     }
 
+    override fun dismissAddPublicShare() {
+        publicShareFragment?.dismiss()
+    }
+
     override fun showEditPublicShare(share: OCShare) {
         val ft = supportFragmentManager.beginTransaction()
         val prev = supportFragmentManager.findFragmentByTag(TAG_PUBLIC_SHARE_DIALOG_FRAGMENT)
@@ -313,12 +317,12 @@ class ShareActivity : FileActivity(), ShareFragmentListener {
         if (result.isSuccess) {
             updateFileFromDB()
 
-            publicShareFragment!!.dismiss()
+            publicShareFragment?.dismiss()
 
             fileOperationsHelper.copyOrSendPublicLink(OCShare.fromRemoteShare(result.data.shares[0]))
 
         } else {
-            publicShareFragment!!.showError(
+            publicShareFragment?.showError(
                     ErrorMessageAdapter.getResultMessage(result, operation, resources)!!
             )
         }
@@ -331,12 +335,12 @@ class ShareActivity : FileActivity(), ShareFragmentListener {
         if (result.isSuccess) {
             updateFileFromDB()
 
-            publicShareFragment!!.dismiss()
+            publicShareFragment?.dismiss()
 
             fileOperationsHelper.copyOrSendPublicLink(OCShare.fromRemoteShare(result.data.shares[0]))
 
         } else {
-            publicShareFragment!!.showError(
+            publicShareFragment?.showError(
                     ErrorMessageAdapter.getResultMessage(result, operation, resources)!!
             )
         }
