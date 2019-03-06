@@ -226,6 +226,12 @@ public abstract class DrawerActivity extends ToolbarActivity {
                                 uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(uploadListIntent);
                                 break;
+                            case R.id.nav_only_available_offline: ;
+                                menuItem.setChecked(true);
+                                mCheckedMenuItem = menuItem.getItemId();
+
+                                onlyAvailableOfflineOption();
+                                break;
                             case R.id.nav_settings:
                                 Intent settingsIntent = new Intent(getApplicationContext(),
                                         Preferences.class);
@@ -503,6 +509,11 @@ public abstract class DrawerActivity extends ToolbarActivity {
      * Method that gets called on drawer menu click for 'All Files'.
      */
     public abstract void allFilesOption();
+
+    /**
+     * Method that gets called on drawer menu click for 'Available Offline'.
+     */
+    public abstract void onlyAvailableOfflineOption();
 
     /**
      * Updates title bar and home buttons (state and icon).
