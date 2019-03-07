@@ -812,8 +812,6 @@ class PublicShareDialogFragment : DialogFragment() {
             val publicShareDialogFragment = PublicShareDialogFragment()
             val args = Bundle()
             args.putParcelable(ARG_FILE, fileToShare)
-            // TODO New Android Components
-            //        args.putParcelable(ARG_SHARE, publicShare);
             args.putParcelable(ARG_ACCOUNT, account)
             publicShareDialogFragment.arguments = args
             return publicShareDialogFragment

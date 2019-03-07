@@ -109,12 +109,6 @@ class ShareActivity : FileActivity(), ShareFragmentListener {
         super.onAccountSet(stateWasRecovered)
         // Load data into the list
         Log_OC.d(TAG, "Refreshing lists on account set");
-
-        // TODO New Android Components
-//        refreshSharesFromStorageManager();
-
-        // Request for a refresh of the data through the server (starts an Async Task)
-//        refreshSharesFromServer();
     }
 
     override fun onNewIntent(intent: Intent) {

@@ -503,20 +503,6 @@ class ShareFileFragment : Fragment(), ShareUserListAdapter.ShareUserAdapterListe
             publicLinksList.visibility = View.GONE
         }
 
-        // TODO New Android Components
-        // Show or hide button for adding a new public share depending on the capabilities and
-        // the server version
-//        if (!enableMultiplePublicSharing()) {
-//            if (mPublicLinks!!.size == 0) {
-//
-//                addPublicLinkButton.visibility = View.VISIBLE
-//
-//            } else if (mPublicLinks!!.size >= 1) {
-//
-//                addPublicLinkButton.visibility = View.INVISIBLE
-//            }
-//        }
-
         // Set Scroll to initial position
         val scrollView = view!!.findViewById<ScrollView>(R.id.shareScroll)
         scrollView.scrollTo(0, 0)
